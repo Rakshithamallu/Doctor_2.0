@@ -4,10 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
 
 const port = Number(process.env.PORT) || 5173;
-const basePath = process.env.BASE_PATH || (process.env.NODE_ENV === 'production' ? '/Doctor_2.0/' : '/');
-
 export default defineConfig({
-  base: basePath,
+  base: '/Doctor_2.0/',
   plugins: [
     react(),
     tailwindcss(),
