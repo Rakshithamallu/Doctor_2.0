@@ -10,27 +10,27 @@ export const RoboticComparator: React.FC<RoboticComparatorProps> = ({ onOpenBook
   const [activeView, setActiveView] = useState<'both' | 'robotic' | 'conventional'>('both');
 
   return (
-    <div className="rounded-3xl border border-sky-500/20 bg-[#081325]/90 p-6 md:p-10 text-slate-200 shadow-2xl backdrop-blur-xl">
+    <div className="rounded-3xl border border-sky-500/20 bg-[#081325]/90 p-4 sm:p-6 md:p-10 text-slate-200 shadow-2xl backdrop-blur-xl">
       {/* Top Banner */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-sky-500/15 pb-6 mb-8">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-sky-500/15 pb-5 sm:pb-6 mb-6 sm:mb-8">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3.5 py-1 text-xs font-semibold text-cyan-300">
             <Cpu size={14} className="text-cyan-400" />
             MAKO 2.0 &amp; CUVIS Robotic Surgical Suite
           </div>
-          <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white mt-2">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white mt-2">
             Robotic vs. Conventional Joint Replacement
           </h3>
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-xs sm:text-sm text-slate-400">
             Compare sub-millimeter robotic accuracy versus traditional manual instrumentation for knee &amp; hip replacement.
           </p>
         </div>
 
         {/* View Filter */}
-        <div className="flex rounded-xl bg-[#040914] p-1 border border-sky-500/20 text-xs font-semibold">
+        <div className="flex w-full sm:w-auto rounded-xl bg-[#040914] p-1 border border-sky-500/20 text-xs font-semibold">
           <button
             onClick={() => setActiveView('both')}
-            className={`rounded-lg px-3 py-1.5 transition-all ${
+            className={`flex-1 sm:flex-initial rounded-lg px-2.5 sm:px-3 py-1.5 transition-all text-center ${
               activeView === 'both' ? 'bg-gradient-to-r from-cyan-500 to-sky-500 text-slate-950 font-bold shadow-[0_0_15px_rgba(6,182,212,0.35)]' : 'text-slate-400 hover:text-white'
             }`}
           >
@@ -38,15 +38,15 @@ export const RoboticComparator: React.FC<RoboticComparatorProps> = ({ onOpenBook
           </button>
           <button
             onClick={() => setActiveView('robotic')}
-            className={`rounded-lg px-3 py-1.5 transition-all ${
+            className={`flex-1 sm:flex-initial rounded-lg px-2.5 sm:px-3 py-1.5 transition-all text-center ${
               activeView === 'robotic' ? 'bg-gradient-to-r from-cyan-500 to-sky-500 text-slate-950 font-bold shadow-[0_0_15px_rgba(6,182,212,0.35)]' : 'text-slate-400 hover:text-white'
             }`}
           >
-            Robotic Only
+            Robotic
           </button>
           <button
             onClick={() => setActiveView('conventional')}
-            className={`rounded-lg px-3 py-1.5 transition-all ${
+            className={`flex-1 sm:flex-initial rounded-lg px-2.5 sm:px-3 py-1.5 transition-all text-center ${
               activeView === 'conventional' ? 'bg-slate-700 text-white font-bold shadow-xs' : 'text-slate-400 hover:text-white'
             }`}
           >
@@ -56,7 +56,7 @@ export const RoboticComparator: React.FC<RoboticComparatorProps> = ({ onOpenBook
       </div>
 
       {/* Comparison Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
         {/* Robotic Column */}
         {(activeView === 'both' || activeView === 'robotic') && (
           <div className="relative overflow-hidden rounded-2xl border-2 border-cyan-500/40 bg-gradient-to-b from-cyan-950/40 via-[#0a1830] to-[#061020] p-6 shadow-xl shadow-cyan-950/30">

@@ -62,17 +62,17 @@ Appointment Request:
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-md animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-2 sm:p-4 backdrop-blur-md animate-fadeIn"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-appointment-title"
     >
-      <div className="relative w-full max-w-lg rounded-3xl border border-sky-500/25 bg-[#081325] p-6 md:p-8 text-slate-200 shadow-2xl shadow-cyan-950/50">
+      <div className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto rounded-2xl sm:rounded-3xl border border-sky-500/25 bg-[#081325] p-4 sm:p-6 md:p-8 text-slate-200 shadow-2xl shadow-cyan-950/50">
         {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Close dialog"
-          className="absolute right-5 top-5 rounded-full border border-sky-500/20 bg-[#040914] p-2 text-slate-400 transition-colors hover:bg-sky-500/20 hover:text-white focus-visible:outline-2 focus-visible:outline-cyan-400"
+          className="absolute right-3.5 sm:right-5 top-3.5 sm:top-5 rounded-full border border-sky-500/20 bg-[#040914] p-2 text-slate-400 transition-colors hover:bg-sky-500/20 hover:text-white focus-visible:outline-2 focus-visible:outline-cyan-400 z-10"
         >
           <X size={18} />
         </button>

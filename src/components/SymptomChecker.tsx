@@ -70,18 +70,18 @@ export const SymptomChecker: React.FC<SymptomCheckerProps> = ({ onOpenBooking })
   const triage = isCompleted ? getTriageResult() : null;
 
   return (
-    <div className="rounded-3xl border border-sky-500/20 bg-[#081325]/90 p-6 md:p-10 text-slate-200 shadow-2xl backdrop-blur-xl">
+    <div className="rounded-3xl border border-sky-500/20 bg-[#081325]/90 p-4 sm:p-6 md:p-10 text-slate-200 shadow-2xl backdrop-blur-xl">
       {/* Title & Progress Header */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-sky-500/15 pb-6 mb-8">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-sky-500/15 pb-5 sm:pb-6 mb-6 sm:mb-8">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3.5 py-1 text-xs font-semibold text-cyan-300">
             <HelpCircle size={14} className="text-cyan-400" />
             Quick Clinical Triage
           </div>
-          <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white mt-2">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white mt-2">
             Joint Pain &amp; Symptom Self-Assessment
           </h3>
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-xs sm:text-sm text-slate-400">
             Answer 3 clinical questions to identify the recommended orthopedic pathway for your symptoms.
           </p>
         </div>
@@ -93,7 +93,7 @@ export const SymptomChecker: React.FC<SymptomCheckerProps> = ({ onOpenBooking })
               {symptomTriageSteps.map((_, i) => (
                 <div
                   key={i}
-                  className={`h-2.5 w-7 rounded-full transition-all duration-300 ${
+                  className={`h-2 w-5 sm:h-2.5 sm:w-7 rounded-full transition-all duration-300 ${
                     i <= currentStep ? 'bg-cyan-400 shadow-[0_0_8px_rgba(6,182,212,0.6)]' : 'bg-slate-800'
                   }`}
                 />

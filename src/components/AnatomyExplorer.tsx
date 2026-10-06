@@ -114,24 +114,24 @@ export const AnatomyExplorer: React.FC<AnatomyExplorerProps> = ({ onSelectTreatm
   const activeJoint = anatomyJoints.find((j) => j.id === selectedId) || anatomyJoints[0];
 
   return (
-    <div className="rounded-3xl border border-sky-500/25 bg-[#081224] p-6 md:p-10 shadow-2xl text-white">
+    <div className="rounded-3xl border border-sky-500/25 bg-[#081224] p-4 sm:p-6 md:p-10 shadow-2xl text-white">
       {/* Header Bar */}
-      <div className="mb-8 flex flex-col items-start justify-between gap-4 border-b border-slate-800 pb-6 md:flex-row md:items-center">
+      <div className="mb-6 sm:mb-8 flex flex-col items-start justify-between gap-4 border-b border-slate-800 pb-5 sm:pb-6 md:flex-row md:items-center">
         <div>
           <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-950/70 px-3.5 py-1 text-xs font-semibold text-cyan-300">
             <span className="h-2 w-2 animate-pulse rounded-full bg-cyan-400" />
             Interactive 3D Anatomical Explorer
           </div>
-          <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Explore Joint &amp; Spine Anatomy
           </h3>
-          <p className="mt-1 text-sm text-slate-300">
+          <p className="mt-1 text-xs sm:text-sm text-slate-300">
             Select an anatomical region to discover underlying structures, conditions, and micro-invasive surgical solutions.
           </p>
         </div>
 
         {/* Joint Selector Pills */}
-        <div className="flex flex-wrap gap-2" role="tablist" aria-label="Anatomical Joints">
+        <div className="flex overflow-x-auto no-scrollbar sm:flex-wrap gap-1.5 sm:gap-2 w-full md:w-auto pb-1.5 sm:pb-0" role="tablist" aria-label="Anatomical Joints">
           {anatomyJoints.map((joint) => {
             const isSelected = joint.id === selectedId;
             return (
@@ -140,9 +140,9 @@ export const AnatomyExplorer: React.FC<AnatomyExplorerProps> = ({ onSelectTreatm
                 role="tab"
                 aria-selected={isSelected}
                 onClick={() => setSelectedId(joint.id)}
-                className={`inline-flex items-center gap-2 rounded-xl px-3.5 py-2 text-xs md:text-sm font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-cyan-400 ${
+                className={`whitespace-nowrap inline-flex items-center gap-1.5 sm:gap-2 rounded-xl px-3 sm:px-3.5 py-1.5 sm:py-2 text-xs md:text-sm font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-cyan-400 shrink-0 ${
                   isSelected
-                    ? 'bg-gradient-to-r from-cyan-500 to-sky-500 text-slate-950 shadow-md shadow-cyan-500/25 scale-105 font-bold'
+                    ? 'bg-gradient-to-r from-cyan-500 to-sky-500 text-slate-950 shadow-md shadow-cyan-500/25 font-bold'
                     : 'bg-slate-900/90 text-slate-300 hover:bg-slate-800 hover:text-white border border-slate-800'
                 }`}
               >
@@ -154,42 +154,42 @@ export const AnatomyExplorer: React.FC<AnatomyExplorerProps> = ({ onSelectTreatm
       </div>
 
       {/* Main Interactive Stage */}
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 items-center">
+      <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-12 items-center">
         {/* Left Column: Visual Joint Card with Clean Real Image */}
         <div className="lg:col-span-5 flex flex-col">
-          <div className="relative overflow-hidden rounded-2xl border border-sky-500/20 bg-[#060e1d] p-6 text-white shadow-xl">
+          <div className="relative overflow-hidden rounded-2xl border border-sky-500/20 bg-[#060e1d] p-4 sm:p-6 text-white shadow-xl">
             {/* Top Badge */}
             <div className="flex items-center justify-between mb-4">
-              <span className="rounded-full bg-sky-950 px-3 py-1 text-xs font-bold text-cyan-300 border border-sky-500/30">
+              <span className="rounded-full bg-sky-950 px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs font-bold text-cyan-300 border border-sky-500/30">
                 {activeJoint.badge}
               </span>
-              <span className="text-xs font-medium text-slate-400">
+              <span className="text-[11px] sm:text-xs font-medium text-slate-400">
                 {activeJoint.category}
               </span>
             </div>
 
             {/* Real Anatomy Photo */}
-            <div className="relative overflow-hidden rounded-2xl border-2 border-sky-500/30 mb-5 shadow-md group">
+            <div className="relative overflow-hidden rounded-2xl border-2 border-sky-500/30 mb-4 sm:mb-5 shadow-md group">
               <img
                 src={activeJoint.image}
                 alt={activeJoint.name}
-                className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="h-44 sm:h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-3 rounded-lg bg-cyan-500 px-2.5 py-1 text-[11px] font-bold text-slate-950 shadow-md">
+              <div className="absolute bottom-2.5 sm:bottom-3 left-2.5 sm:left-3 rounded-lg bg-cyan-500 px-2.5 py-1 text-[10px] sm:text-[11px] font-bold text-slate-950 shadow-md">
                 {activeJoint.name}
               </div>
             </div>
 
             {/* Overview */}
-            <h4 className="text-xl font-bold text-white">{activeJoint.name}</h4>
+            <h4 className="text-lg sm:text-xl font-bold text-white">{activeJoint.name}</h4>
             <p className="mt-2 text-xs leading-relaxed text-slate-300">
               {activeJoint.overview}
             </p>
 
             {/* Recovery Stat Card */}
-            <div className="mt-5 rounded-xl border border-sky-500/30 bg-sky-950/60 p-3.5">
-              <div className="text-[11px] font-bold uppercase tracking-wider text-cyan-300">
+            <div className="mt-4 sm:mt-5 rounded-xl border border-sky-500/30 bg-sky-950/60 p-3 sm:p-3.5">
+              <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-cyan-300">
                 Rapid Recovery Benchmark
               </div>
               <div className="mt-1 text-xs font-semibold text-white">
@@ -200,20 +200,20 @@ export const AnatomyExplorer: React.FC<AnatomyExplorerProps> = ({ onSelectTreatm
         </div>
 
         {/* Right Column: Detailed Clinical Breakdown */}
-        <div className="lg:col-span-7 space-y-6">
+        <div className="lg:col-span-7 space-y-5 sm:space-y-6">
           {/* Key Anatomical Structures */}
           <div>
             <h5 className="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
               Critical Anatomical Structures
             </h5>
-            <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <div className="mt-2.5 sm:mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
               {activeJoint.structures.map((struct, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center gap-2.5 rounded-xl border border-slate-800 bg-slate-900/90 p-3 text-xs text-slate-200 transition-colors hover:border-cyan-400 hover:bg-sky-950/60"
+                  className="flex items-center gap-2 sm:gap-2.5 rounded-xl border border-slate-800 bg-slate-900/90 p-2.5 sm:p-3 text-xs text-slate-200 transition-colors hover:border-cyan-400 hover:bg-sky-950/60"
                 >
-                  <CheckCircle2 size={15} className="text-cyan-400 shrink-0" />
+                  <CheckCircle2 size={14} className="text-cyan-400 shrink-0" />
                   <span>{struct}</span>
                 </div>
               ))}
@@ -226,11 +226,11 @@ export const AnatomyExplorer: React.FC<AnatomyExplorerProps> = ({ onSelectTreatm
               <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
               Frequently Diagnosed Conditions
             </h5>
-            <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <div className="mt-2.5 sm:mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
               {activeJoint.commonConditions.map((cond, idx) => (
                 <div
                   key={idx}
-                  className="rounded-xl border border-amber-500/30 bg-amber-950/40 p-3 text-xs text-amber-200"
+                  className="rounded-xl border border-amber-500/30 bg-amber-950/40 p-2.5 sm:p-3 text-xs text-amber-200"
                 >
                   <span className="font-semibold text-white">⚠️ {cond}</span>
                 </div>
@@ -244,13 +244,13 @@ export const AnatomyExplorer: React.FC<AnatomyExplorerProps> = ({ onSelectTreatm
               <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
               Super-Specialized Treatments Offered
             </h5>
-            <div className="mt-3 space-y-2">
+            <div className="mt-2.5 sm:mt-3 space-y-2">
               {activeJoint.treatmentOptions.map((treat, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-2.5 rounded-xl border border-sky-500/20 bg-sky-950/50 p-3 text-xs font-medium text-slate-200"
+                  className="flex items-start gap-2 sm:gap-2.5 rounded-xl border border-sky-500/20 bg-sky-950/50 p-2.5 sm:p-3 text-xs font-medium text-slate-200"
                 >
-                  <ChevronRight size={16} className="text-cyan-400 shrink-0 mt-0.5" />
+                  <ChevronRight size={15} className="text-cyan-400 shrink-0 mt-0.5" />
                   <span>{treat}</span>
                 </div>
               ))}
@@ -258,16 +258,16 @@ export const AnatomyExplorer: React.FC<AnatomyExplorerProps> = ({ onSelectTreatm
           </div>
 
           {/* Direct Actions */}
-          <div className="pt-2 flex flex-wrap items-center gap-3">
+          <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
             <button
               onClick={() => onOpenBooking(`Consultation for ${activeJoint.name}`)}
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-500 px-5 py-3 text-xs md:text-sm font-bold text-slate-950 shadow-md shadow-cyan-500/20 transition-all hover:from-cyan-400 hover:to-sky-400 hover:scale-105 active:scale-95"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-500 px-4 sm:px-5 py-3 text-xs md:text-sm font-bold text-slate-950 shadow-md shadow-cyan-500/20 transition-all hover:from-cyan-400 hover:to-sky-400 active:scale-95"
             >
               Consult Dr. Shashi for {activeJoint.name.split(' ')[0]} <ArrowRight size={15} />
             </button>
             <button
               onClick={() => onSelectTreatment(activeJoint.id)}
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-xs md:text-sm font-semibold text-slate-300 shadow-xs transition-colors hover:bg-slate-800 hover:text-white"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-xs md:text-sm font-semibold text-slate-300 shadow-xs transition-colors hover:bg-slate-800 hover:text-white"
             >
               View Detailed Clinical Protocols
             </button>

@@ -276,36 +276,36 @@ export const RotatingShowcase: React.FC<RotatingShowcaseProps> = ({ onOpenBookin
     }
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedPod]);
-
-  return (
-    <div className="relative flex flex-col items-center justify-center py-6 select-none">
+    return (
+    <div className="relative flex flex-col items-center justify-center py-2 sm:py-6 select-none overflow-hidden max-w-full">
       {/* Caption Beacon */}
-      <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-cyan-500/40 bg-cyan-950/70 px-5 py-1.5 text-xs font-bold uppercase tracking-widest text-cyan-300 shadow-sm shadow-cyan-500/20 backdrop-blur-md">
-        <span className="h-2.5 w-2.5 rounded-full bg-cyan-400 animate-ping" />
-        <span>Clockwise 3D Anatomical Explorer • Click Any Joint</span>
+      <div className="mb-4 sm:mb-6 inline-flex items-center gap-1.5 sm:gap-2.5 rounded-full border border-cyan-500/40 bg-cyan-950/70 px-3 sm:px-5 py-1 sm:py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-wider sm:tracking-widest text-cyan-300 shadow-sm shadow-cyan-500/20 backdrop-blur-md text-center">
+        <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-cyan-400 animate-ping shrink-0" />
+        <span>Clockwise 3D Orbit • Tap Any Joint</span>
       </div>
 
       {/* Orbit Arena Stage */}
-      <div className="relative flex h-[380px] w-[380px] sm:h-[420px] sm:w-[420px] items-center justify-center group">
+      <div className="relative flex h-[270px] w-[270px] xs:h-[310px] xs:w-[310px] sm:h-[400px] sm:w-[400px] items-center justify-center group my-1 sm:my-2">
         {/* Halo Background Glows */}
-        <div className="absolute h-[360px] w-[360px] rounded-full bg-radial from-cyan-500/20 via-sky-500/10 to-transparent pointer-events-none blur-2xl" />
+        <div className="absolute h-[250px] w-[250px] xs:h-[290px] xs:w-[290px] sm:h-[360px] sm:w-[360px] rounded-full bg-radial from-cyan-500/20 via-sky-500/10 to-transparent pointer-events-none blur-2xl" />
         
         {/* Dashed Orbital Rings */}
-        <div className="absolute h-[320px] w-[320px] sm:h-[350px] sm:w-[350px] rounded-full border-2 border-dashed border-cyan-500/40 pointer-events-none animate-spin-slow" />
-        <div className="absolute h-[240px] w-[240px] rounded-full border border-sky-500/30 pointer-events-none" />
+        <div className="absolute h-[200px] w-[200px] xs:h-[240px] xs:w-[240px] sm:h-[330px] sm:w-[330px] rounded-full border-2 border-dashed border-cyan-500/40 pointer-events-none animate-spin-slow" />
+        <div className="absolute h-[150px] w-[150px] xs:h-[180px] xs:w-[180px] sm:h-[230px] sm:w-[230px] rounded-full border border-sky-500/30 pointer-events-none" />
 
         {/* Central Hub Emblem */}
-        <div className="relative z-10 flex h-24 w-24 sm:h-28 sm:w-28 flex-col items-center justify-center rounded-full border-2 border-cyan-400 bg-gradient-to-tr from-cyan-600 via-sky-600 to-sky-500 shadow-2xl shadow-cyan-500/40">
+        <div className="relative z-10 flex h-16 w-16 xs:h-18 xs:w-18 sm:h-26 sm:w-26 flex-col items-center justify-center rounded-full border-2 border-cyan-400 bg-gradient-to-tr from-cyan-600 via-sky-600 to-sky-500 shadow-2xl shadow-cyan-500/40">
           <div className="absolute inset-0 rounded-full bg-white/20 animate-pulse pointer-events-none" />
-          <Stethoscope size={28} className="text-white drop-shadow-md" />
-          <span className="text-[9px] font-black uppercase tracking-wider text-white mt-0.5 text-center px-1 leading-none">
+          <Stethoscope size={18} className="text-white drop-shadow-md sm:hidden" />
+          <Stethoscope size={26} className="text-white drop-shadow-md hidden sm:block" />
+          <span className="text-[7px] sm:text-[9px] font-black uppercase tracking-wider text-white mt-0.5 text-center px-0.5 leading-none">
             DR. SHASHI
           </span>
-          <span className="text-[8px] font-bold text-cyan-100">ORTHOCARE</span>
+          <span className="text-[6px] sm:text-[8px] font-bold text-cyan-100">ORTHOCARE</span>
         </div>
 
         {/* Orbit Rotating Track */}
-        <div className="absolute h-[320px] w-[320px] sm:h-[350px] sm:w-[350px] rounded-full animate-rotateClockwise group-hover:[animation-play-state:paused]">
+        <div className="absolute h-[200px] w-[200px] xs:h-[240px] xs:w-[240px] sm:h-[330px] sm:w-[330px] rounded-full animate-rotateClockwise group-hover:[animation-play-state:paused]">
           {pods.map((pod, idx) => {
             let posClass = '';
             if (idx === 0) posClass = 'top-1/2 left-0 -translate-x-1/2 -translate-y-1/2'; // Left (Trauma 3D)
@@ -319,18 +319,18 @@ export const RotatingShowcase: React.FC<RotatingShowcaseProps> = ({ onOpenBookin
                 <div className="animate-counterRotate group-hover:[animation-play-state:paused]">
                   <button
                     onClick={() => setSelectedPod(pod)}
-                    className="relative flex h-24 w-24 sm:h-28 sm:w-28 flex-col items-center justify-center rounded-2xl border-2 border-sky-500/40 bg-[#071226]/90 p-1.5 shadow-xl backdrop-blur-md transition-all duration-300 hover:scale-115 hover:border-cyan-400 hover:shadow-2xl hover:shadow-cyan-500/40 focus-visible:outline-2 focus-visible:outline-cyan-400"
+                    className="relative flex h-16 w-16 xs:h-18 xs:w-18 sm:h-26 sm:w-26 flex-col items-center justify-center rounded-2xl border-2 border-sky-500/40 bg-[#071226]/95 p-1 sm:p-1.5 shadow-xl backdrop-blur-md transition-all duration-300 hover:scale-110 active:scale-95 hover:border-cyan-400 hover:shadow-2xl hover:shadow-cyan-500/40 focus-visible:outline-2 focus-visible:outline-cyan-400"
                   >
                     <img
                       src={pod.image}
                       alt={pod.name}
-                      className="h-14 w-14 sm:h-16 sm:w-16 rounded-xl object-cover border border-sky-500/30"
+                      className="h-8 w-8 xs:h-10 xs:w-10 sm:h-14 sm:w-14 rounded-xl object-cover border border-sky-500/30"
                     />
-                    <div className="mt-1 max-w-[85px] truncate text-[10px] font-bold text-white">
+                    <div className="mt-0.5 max-w-[55px] xs:max-w-[65px] sm:max-w-[80px] truncate text-[8px] xs:text-[9px] sm:text-[10px] font-bold text-white">
                       {pod.name.split(' ')[0]}
                     </div>
-                    <div className="text-[8px] font-semibold text-cyan-400">
-                      Click to View
+                    <div className="text-[6px] xs:text-[7px] sm:text-[8px] font-semibold text-cyan-400">
+                      Tap View
                     </div>
                   </button>
                 </div>
@@ -341,30 +341,30 @@ export const RotatingShowcase: React.FC<RotatingShowcaseProps> = ({ onOpenBookin
       </div>
 
       {/* Helper text below orbit */}
-      <div className="mt-4 text-center text-xs text-slate-400">
-        Hover over any joint orb to pause rotation &bull; Tap to view 3D clinical details
+      <div className="mt-3 text-center text-[11px] sm:text-xs text-slate-400 px-2">
+        Tap any rotating joint orb to view 3D interactive details
       </div>
 
       {/* Interactive 3D Anatomy Lightbox Dialog with Interactive Hotspots */}
       {selectedPod && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 p-3 sm:p-6 backdrop-blur-md animate-fadeIn"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 p-2 sm:p-6 backdrop-blur-md animate-fadeIn"
           role="dialog"
           aria-modal="true"
         >
-          <div className="relative w-full max-w-4xl rounded-2xl md:rounded-3xl border border-slate-800/90 bg-[#0a1120] p-4 sm:p-6 text-white shadow-2xl overflow-hidden">
+          <div className="relative max-h-[92vh] overflow-y-auto w-full max-w-4xl rounded-2xl md:rounded-3xl border border-slate-800/90 bg-[#0a1120] p-4 sm:p-6 text-white shadow-2xl">
             {/* Top Header Row */}
             <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-              <div className="flex items-center gap-3">
-                <span className="rounded-full border border-sky-500/40 bg-sky-950/60 px-3 py-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-sky-400 shadow-sm">
+              <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+                <span className="rounded-full border border-sky-500/40 bg-sky-950/60 px-2.5 py-0.5 text-[9px] sm:text-[11px] font-bold uppercase tracking-wider text-sky-400 shadow-sm shrink-0">
                   {selectedPod.categoryBadge}
                 </span>
-                <h3 className="text-sm sm:text-base md:text-xl font-bold text-white truncate max-w-xs sm:max-w-md">
+                <h3 className="text-sm sm:text-base md:text-xl font-bold text-white truncate max-w-[180px] xs:max-w-xs sm:max-w-md">
                   {selectedPod.name}
                 </h3>
               </div>
 
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2">
                 <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-slate-700/80 bg-slate-800/80 px-3 py-1 text-[11px] font-medium text-slate-300">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   <span>Click dot to view part name</span>
@@ -406,7 +406,7 @@ export const RotatingShowcase: React.FC<RotatingShowcaseProps> = ({ onOpenBookin
                     {/* Active Tooltip Popover attached to Dot */}
                     {isActive && (
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2.5 z-30 pointer-events-none animate-fadeIn">
-                        <div className="rounded-lg border border-sky-400/50 bg-[#0c182d]/95 px-3 py-1.5 shadow-2xl backdrop-blur-md text-left min-w-[140px] whitespace-nowrap">
+                        <div className="rounded-lg border border-sky-400/50 bg-[#0c182d]/95 px-3 py-1.5 shadow-2xl backdrop-blur-md text-left min-w-[120px] whitespace-nowrap">
                           <div className="text-xs font-bold text-white">{dot.title}</div>
                           <div className="text-[10px] text-sky-300 font-medium">{dot.subtitle}</div>
                         </div>
@@ -438,18 +438,18 @@ export const RotatingShowcase: React.FC<RotatingShowcaseProps> = ({ onOpenBookin
 
               {/* Bottom Active Information Overlay inside Image Container */}
               {activeHotspot && (
-                <div className="absolute bottom-3 left-3 right-3 z-30 animate-fadeIn rounded-xl border border-sky-500/40 bg-[#0c182d]/90 p-3 text-white shadow-2xl backdrop-blur-md flex items-center justify-between gap-3">
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-white leading-snug">
+                <div className="absolute bottom-3 left-3 right-3 z-30 animate-fadeIn rounded-xl border border-sky-500/40 bg-[#0c182d]/90 p-2.5 sm:p-3 text-white shadow-2xl backdrop-blur-md flex items-center justify-between gap-2">
+                  <div className="min-w-0">
+                    <h4 className="text-xs sm:text-sm font-bold text-white leading-snug truncate">
                       {activeHotspot.title}
                     </h4>
-                    <p className="text-[11px] sm:text-xs text-sky-300 font-medium">
+                    <p className="text-[10px] sm:text-xs text-sky-300 font-medium truncate">
                       {activeHotspot.subtitle}
                     </p>
                   </div>
                   <button
                     onClick={() => setActiveHotspot(null)}
-                    className="rounded-full p-1 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                    className="rounded-full p-1 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors shrink-0"
                     aria-label="Dismiss detail"
                   >
                     <X size={16} />
@@ -462,7 +462,7 @@ export const RotatingShowcase: React.FC<RotatingShowcaseProps> = ({ onOpenBookin
             <div className="mt-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-400 pt-3 border-t border-slate-800/80">
               <div className="flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-emerald-400 shrink-0 animate-pulse" />
-                <span className="text-slate-300 text-xs">{selectedPod.caption}</span>
+                <span className="text-slate-300 text-[11px] sm:text-xs leading-tight">{selectedPod.caption}</span>
               </div>
               <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end">
                 <span className="text-[11px] text-slate-400 hidden md:inline">Click any dot for details • Esc to exit</span>
@@ -472,7 +472,7 @@ export const RotatingShowcase: React.FC<RotatingShowcaseProps> = ({ onOpenBookin
                     setSelectedPod(null);
                     onOpenBooking(`Consultation for ${podName}`);
                   }}
-                  className="rounded-xl bg-sky-600 px-4 py-2 text-xs font-bold text-white hover:bg-sky-500 transition-colors shadow-md shadow-sky-600/20 flex items-center gap-1.5"
+                  className="w-full sm:w-auto rounded-xl bg-sky-600 px-4 py-2 text-xs font-bold text-white hover:bg-sky-500 transition-colors shadow-md shadow-sky-600/20 flex items-center justify-center gap-1.5"
                 >
                   <span>Book Consultation</span>
                   <ArrowRight size={13} />

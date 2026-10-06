@@ -22,50 +22,50 @@ export const AmbienceGallery: React.FC = () => {
   }, [activeModalImage]);
 
   return (
-    <div className="rounded-3xl border border-sky-500/25 bg-[#081224] p-6 md:p-10 text-white shadow-2xl backdrop-blur-xl">
+    <div className="rounded-3xl border border-sky-500/25 bg-[#081224] p-4 sm:p-6 md:p-10 text-white shadow-2xl backdrop-blur-xl">
       {/* Header */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-800 pb-6 mb-8">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-800 pb-5 sm:pb-6 mb-6 sm:mb-8">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-950/70 px-3.5 py-1 text-xs font-semibold text-cyan-300">
             <Building2 size={14} />
             CLINICAL EXCELLENCE &amp; AMBIENCE
           </div>
-          <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white mt-2">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white mt-2">
             Inside {clinicInfo.brandName}
           </h3>
-          <p className="mt-1 text-sm text-slate-300">
+          <p className="mt-1 text-xs sm:text-sm text-slate-300">
             Aseptic surgical environments, comfortable patient lounges, and advanced orthopaedic technology.
           </p>
         </div>
 
         {/* Gallery Tab Switcher */}
-        <div className="flex rounded-xl bg-[#071226]/90 p-1 border border-sky-500/30 text-xs font-semibold">
+        <div className="flex w-full sm:w-auto rounded-xl bg-[#071226]/90 p-1 border border-sky-500/30 text-xs font-semibold">
           <button
             onClick={() => setActiveTab('ambience')}
-            className={`rounded-lg px-3.5 py-1.5 transition-all ${
+            className={`flex-1 sm:flex-initial rounded-lg px-2.5 sm:px-3.5 py-1.5 transition-all text-center ${
               activeTab === 'ambience' ? 'bg-gradient-to-r from-cyan-500 to-sky-500 text-slate-950 font-bold shadow-md shadow-cyan-500/20' : 'text-slate-400 hover:text-white'
             }`}
           >
-            Clinic Ambience ({ambienceImages.length})
+            Ambience ({ambienceImages.length})
           </button>
           <button
             onClick={() => setActiveTab('surgical')}
-            className={`rounded-lg px-3.5 py-1.5 transition-all ${
+            className={`flex-1 sm:flex-initial rounded-lg px-2.5 sm:px-3.5 py-1.5 transition-all text-center ${
               activeTab === 'surgical' ? 'bg-gradient-to-r from-cyan-500 to-sky-500 text-slate-950 font-bold shadow-md shadow-cyan-500/20' : 'text-slate-400 hover:text-white'
             }`}
           >
-            Surgical Cases ({surgicalWorkImages.length})
+            Cases ({surgicalWorkImages.length})
           </button>
         </div>
       </div>
 
       {/* Gallery Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 sm:gap-4">
         {displayList.map((item) => (
           <div
             key={item.id}
             onClick={() => setActiveModalImage(item)}
-            className="group relative h-48 overflow-hidden rounded-2xl border border-sky-500/20 bg-slate-900/90 cursor-pointer shadow-sm transition-all duration-300 hover:scale-103 hover:border-cyan-400 hover:shadow-xl hover:shadow-cyan-500/10"
+            className="group relative h-36 sm:h-48 overflow-hidden rounded-2xl border border-sky-500/20 bg-slate-900/90 cursor-pointer shadow-sm transition-all duration-300 hover:scale-103 hover:border-cyan-400 hover:shadow-xl hover:shadow-cyan-500/10"
           >
             <img
               src={item.image}

@@ -21,30 +21,30 @@ export const ReviewCarousel: React.FC = () => {
   const current = reviewsData[activeIndex];
 
   return (
-    <div className="rounded-3xl border border-sky-500/20 bg-[#081325]/90 p-6 md:p-10 text-slate-200 shadow-2xl backdrop-blur-xl">
+    <div className="rounded-3xl border border-sky-500/20 bg-[#081325]/90 p-4 sm:p-6 md:p-10 text-slate-200 shadow-2xl backdrop-blur-xl">
       {/* Header */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-sky-500/15 pb-6 mb-8">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-sky-500/15 pb-5 sm:pb-6 mb-6 sm:mb-8">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3.5 py-1 text-xs font-semibold text-cyan-300">
             <ShieldCheck size={14} className="text-cyan-400" />
             Verified Google Reviews (5.0 ★ Rating)
           </div>
-          <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white mt-2">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white mt-2">
             Real Patient Recoveries &amp; Surgical Outcomes
           </h3>
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-xs sm:text-sm text-slate-400">
             Read verified testimonials from patients who underwent keyhole arthroscopy, robotic joint replacement, and trauma surgery.
           </p>
         </div>
 
         {/* Carousel Navigation Arrows */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-between w-full md:w-auto gap-2">
           <button
             onClick={prevReview}
             aria-label="Previous review"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-sky-500/20 bg-[#040914] text-slate-300 transition-all hover:bg-cyan-500 hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-cyan-400"
+            className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-sky-500/20 bg-[#040914] text-slate-300 transition-all hover:bg-cyan-500 hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-cyan-400"
           >
-            <ChevronLeft size={20} />
+            <ChevronLeft size={18} />
           </button>
           <span className="text-xs font-bold text-slate-400">
             {activeIndex + 1} / {reviewsData.length}
@@ -52,15 +52,15 @@ export const ReviewCarousel: React.FC = () => {
           <button
             onClick={nextReview}
             aria-label="Next review"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-sky-500/20 bg-[#040914] text-slate-300 transition-all hover:bg-cyan-500 hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-cyan-400"
+            className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-sky-500/20 bg-[#040914] text-slate-300 transition-all hover:bg-cyan-500 hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-cyan-400"
           >
-            <ChevronRight size={20} />
+            <ChevronRight size={18} />
           </button>
         </div>
       </div>
 
       {/* Featured Active Card */}
-      <div className="relative overflow-hidden rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-cyan-950/40 via-[#0a1830] to-[#061020] p-6 md:p-8 shadow-xl shadow-cyan-950/20">
+      <div className="relative overflow-hidden rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-cyan-950/40 via-[#0a1830] to-[#061020] p-4 sm:p-6 md:p-8 shadow-xl shadow-cyan-950/20">
         <Quote className="absolute right-6 top-6 h-24 w-24 text-cyan-500/10 pointer-events-none" />
 
         <div className="flex flex-wrap items-center justify-between gap-3 mb-4">

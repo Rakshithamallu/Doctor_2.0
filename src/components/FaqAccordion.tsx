@@ -17,18 +17,18 @@ export const FaqAccordion: React.FC = () => {
   };
 
   return (
-    <div className="rounded-3xl border border-sky-500/20 bg-[#081325]/90 p-6 md:p-10 text-slate-200 shadow-2xl backdrop-blur-xl">
+    <div className="rounded-3xl border border-sky-500/20 bg-[#081325]/90 p-4 sm:p-6 md:p-10 text-slate-200 shadow-2xl backdrop-blur-xl">
       {/* Header */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-sky-500/15 pb-6 mb-8">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-sky-500/15 pb-5 sm:pb-6 mb-6 sm:mb-8">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3.5 py-1 text-xs font-semibold text-cyan-300">
             <HelpCircle size={14} className="text-cyan-400" />
             Patient Information &amp; Guidance
           </div>
-          <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white mt-2">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white mt-2">
             Frequently Asked Clinical Questions
           </h3>
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-xs sm:text-sm text-slate-400">
             Transparent answers regarding robotic knee replacement, keyhole arthroscopy, recovery times, and cashless insurance.
           </p>
         </div>
@@ -38,21 +38,21 @@ export const FaqAccordion: React.FC = () => {
           href={`${clinicInfo.whatsappUrl}&text=Hello%20Dr.%20Shashi%27s%20Clinic,%20I%20have%20a%20question%20regarding%20orthopedic%20treatment.`}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-xl border border-cyan-400/30 bg-cyan-500/10 px-4 py-2.5 text-xs font-semibold text-cyan-300 transition-colors hover:bg-cyan-500/20"
+          className="w-full md:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-cyan-400/30 bg-cyan-500/10 px-4 py-2.5 text-xs font-semibold text-cyan-300 transition-colors hover:bg-cyan-500/20"
         >
           <MessageCircle size={15} /> Ask a Question on WhatsApp
         </a>
       </div>
 
       {/* Category Pills */}
-      <div className="flex flex-wrap gap-2 mb-6" role="tablist" aria-label="FAQ Categories">
+      <div className="flex overflow-x-auto no-scrollbar sm:flex-wrap gap-1.5 sm:gap-2 mb-6 pb-1 sm:pb-0" role="tablist" aria-label="FAQ Categories">
         {categories.map((cat) => (
           <button
             key={cat}
             role="tab"
             aria-selected={selectedCategory === cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`rounded-xl px-3.5 py-1.5 text-xs font-semibold transition-all ${
+            className={`whitespace-nowrap shrink-0 rounded-xl px-3 sm:px-3.5 py-1.5 text-xs font-semibold transition-all ${
               selectedCategory === cat
                 ? 'bg-gradient-to-r from-cyan-500 to-sky-500 text-slate-950 font-bold shadow-[0_0_15px_rgba(6,182,212,0.35)]'
                 : 'bg-[#040914] text-slate-400 hover:text-white border border-sky-500/15'
