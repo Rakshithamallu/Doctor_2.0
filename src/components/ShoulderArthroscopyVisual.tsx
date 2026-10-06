@@ -77,7 +77,7 @@ export const ShoulderArthroscopyVisual: React.FC = () => {
         {/* Central Anatomy Image Container */}
         <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-[#040914]">
           <img
-            src="/assets/images/shoulder-arthroscopy-hero.jpg"
+            src="./assets/images/shoulder-arthroscopy-hero.jpg"
             alt="Anatomical Shoulder Joint Arthroscopy Keyhole Visualization"
             className={`h-full w-full object-cover transition-transform duration-700 ease-out ${
               isHovered ? 'scale-104' : 'scale-100'
