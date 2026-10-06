@@ -58,6 +58,14 @@ export interface FellowshipItem {
   badge: string;
 }
 
+const base = import.meta.env.BASE_URL || '/';
+export const getAssetUrl = (path: string): string => {
+  if (path.startsWith('http://') || path.startsWith('https://')) return path;
+  const cleanBase = base.endsWith('/') ? base : `${base}/`;
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path.startsWith('./') ? path.slice(2) : path;
+  return `${cleanBase}${cleanPath}`;
+};
+
 export const clinicInfo = {
   brandName: "Dr. Shashikumar's Ortho Clinic",
   subtitle: "Advanced Orthopaedic & Spine Care",
@@ -66,8 +74,8 @@ export const clinicInfo = {
   degrees: "MBBS, MS Orthopaedics",
   designation: "Consultant Orthopaedic, Spine & Robotic Joint Replacement Surgeon",
   fellowships: "FIAS (Arthroscopy & Sports Med), FIJR (Joint Replacement), FIHS (Hand Trauma)",
-  portraitImage: "./assets/images/dr-shashi-portrait.jpg",
-  logoImage: "./assets/images/clinic-logo.png",
+  portraitImage: getAssetUrl("assets/images/dr-shashi-portrait.jpg"),
+  logoImage: getAssetUrl("assets/images/clinic-logo.png"),
   phone: "+91-6361446411",
   displayPhone: "+91 63614 46411",
   secondaryPhone: "+91 92053 95221",
@@ -104,7 +112,7 @@ export const specialtiesData: SpecialtyCategory[] = [
     shortTitle: "Knee Arthroscopy",
     badge: "Keyhole Precision",
     icon: "Activity",
-    image: "./assets/images/knee-anatomy-clean.jpg",
+    image: getAssetUrl("assets/images/knee-anatomy-clean.jpg"),
     tagline: "Minimally invasive keyhole procedures with sub-millimeter precision",
     summary: "Dedicated arthroscopic treatments for ligament tears, meniscal damage, and cartilage preservation, enabling rapid return to sports and daily walking without major open incisions.",
     bgGradient: "from-[#0b1f3a] to-[#071326]",
@@ -163,7 +171,7 @@ export const specialtiesData: SpecialtyCategory[] = [
     shortTitle: "Shoulder Surgery",
     badge: "Mobility & Stability",
     icon: "Shield",
-    image: "./assets/images/shoulder-anatomy-clean.jpg",
+    image: getAssetUrl("assets/images/shoulder-anatomy-clean.jpg"),
     tagline: "Restoring overhead reach, rotational power, and pain-free sleep",
     summary: "Advanced arthroscopic procedures for rotator cuff tears, recurrent shoulder dislocations (Bankart lesions), frozen shoulder release, and SLAP repairs.",
     bgGradient: "from-[#082846] to-[#041224]",
@@ -214,7 +222,7 @@ export const specialtiesData: SpecialtyCategory[] = [
     shortTitle: "Joint Replacement",
     badge: "Robotic MAKO & CUVIS",
     icon: "Cpu",
-    image: "./assets/images/joint-replacement-clean.jpg",
+    image: getAssetUrl("assets/images/joint-replacement-clean.jpg"),
     tagline: "Sub-millimeter implant alignment for lifetime joint longevity",
     summary: "Specialized total and partial joint replacement for knees, hips, and shoulders utilizing next-generation robotic-assisted navigation platforms and minimally invasive surgical exposures.",
     bgGradient: "from-[#0a2f58] to-[#061930]",
@@ -265,7 +273,7 @@ export const specialtiesData: SpecialtyCategory[] = [
     shortTitle: "Spine & Disc Care",
     badge: "Conservative & Minimally Invasive",
     icon: "Compass",
-    image: "./assets/images/spine-anatomy-clean.jpg",
+    image: getAssetUrl("assets/images/spine-anatomy-clean.jpg"),
     tagline: "Evidence-based spine care avoiding unnecessary open spine surgery",
     summary: "Comprehensive evaluation and treatment of herniated discs, sciatica nerve compression, cervical spondylosis, lumbar canal stenosis, and postural spinal disorders.",
     bgGradient: "from-[#08203c] to-[#041020]",
@@ -308,7 +316,7 @@ export const specialtiesData: SpecialtyCategory[] = [
     shortTitle: "Trauma & Fracture",
     badge: "24/7 Emergency",
     icon: "Zap",
-    image: "./assets/images/trauma-fracture-clean.jpg",
+    image: getAssetUrl("assets/images/trauma-fracture-clean.jpg"),
     tagline: "Anatomical bone alignment, rigid fixation & rapid weight bearing",
     summary: "Expert emergency and elective management of simple and complex fractures, intra-articular injuries, non-unions, and malunited bones using modern titanium locking implants.",
     bgGradient: "from-[#092644] to-[#051426]",
@@ -351,7 +359,7 @@ export const specialtiesData: SpecialtyCategory[] = [
     shortTitle: "Regenerative PRP",
     badge: "Biologic Healing",
     icon: "Sparkles",
-    image: "./assets/images/arthritis-clean.jpg",
+    image: getAssetUrl("assets/images/arthritis-clean.jpg"),
     tagline: "Harnessing the body's natural growth factors to heal joints and tendons",
     summary: "Evidence-based biological therapies including high-concentration Platelet-Rich Plasma (PRP), hyaluronic acid visco-supplementation, and collagen matrix injections.",
     bgGradient: "from-[#09294a] to-[#041528]",
@@ -493,7 +501,7 @@ export const facilitiesData: FacilityItem[] = [
     title: "Consultation & Clinical Exam Chamber",
     category: "OPD Consultation",
     description: "Private, state-of-the-art orthopaedic consultation suite for physical joint exams, kinematic gait evaluation, and treatment planning.",
-    image: "./assets/images/facilities/consultation.jpg",
+    image: getAssetUrl("assets/images/facilities/consultation.jpg"),
     badge: "Specialist OPD"
   },
   {
@@ -501,7 +509,7 @@ export const facilitiesData: FacilityItem[] = [
     title: "High-Resolution Digital X-Ray Suite",
     category: "Instant Diagnostics",
     description: "Ultra-low radiation, high-definition digital musculoskeletal imaging for instant weight-bearing alignment assessment.",
-    image: "./assets/images/facilities/digital-xray.jpg",
+    image: getAssetUrl("assets/images/facilities/digital-xray.jpg"),
     badge: "Immediate Results"
   },
   {
@@ -509,7 +517,7 @@ export const facilitiesData: FacilityItem[] = [
     title: "Orthopaedic Physiotherapy & Rehab Unit",
     category: "Kinetic Recovery",
     description: "Targeted clinical post-surgical mobilization, muscle balance retraining, and sports injury conditioning under certified physiotherapists.",
-    image: "./assets/images/facilities/physiotherapy.jpg",
+    image: getAssetUrl("assets/images/facilities/physiotherapy.jpg"),
     badge: "Active Rehab"
   },
   {
@@ -517,7 +525,7 @@ export const facilitiesData: FacilityItem[] = [
     title: "Plaster & Fracture Immobilization POP Room",
     category: "Fracture Care",
     description: "Dedicated sterile plaster room equipped with fiberglass casts, removable orthotic splints, and traction equipment for rapid bone stabilization.",
-    image: "./assets/images/facilities/plaster-pop.jpg",
+    image: getAssetUrl("assets/images/facilities/plaster-pop.jpg"),
     badge: "24/7 Fracture Casts"
   },
   {
@@ -525,29 +533,29 @@ export const facilitiesData: FacilityItem[] = [
     title: "Sterile Minor Procedure & Dressing Room",
     category: "Wound & Biologics",
     description: "Ultra-clean surgical suite for sterile dressing changes, suture removals, and image-guided joint / PRP biologic infiltrations.",
-    image: "./assets/images/facilities/dressing.jpg",
+    image: getAssetUrl("assets/images/facilities/dressing.jpg"),
     badge: "Aseptic Environment"
   }
 ];
 
 export const ambienceImages = [
-  { id: "amb-1", image: "./assets/images/ambience/ambience-1.jpg", title: "Modern Clinic Exterior & Entrance" },
-  { id: "amb-2", image: "./assets/images/ambience/ambience-2.jpg", title: "Executive Reception & Patient Helpdesk" },
-  { id: "amb-3", image: "./assets/images/ambience/ambience-3.jpg", title: "Patient Waiting Lounge & Care Gallery" },
-  { id: "amb-4", image: "./assets/images/ambience/ambience-4.jpg", title: "Consultation Chamber & Examiniation Suite" },
-  { id: "amb-5", image: "./assets/images/ambience/ambience-5.jpg", title: "Specialist Clinical Examination Room" },
-  { id: "amb-6", image: "./assets/images/ambience/ambience-6.jpg", title: "Wide Clinic Gallery Corridor" },
-  { id: "amb-7", image: "./assets/images/ambience/ambience-7.jpg", title: "Physiotherapy & Active Rehabilitation Suite" },
-  { id: "amb-8", image: "./assets/images/ambience/ambience-8.jpg", title: "Sterile Plaster (POP) & Minor Dressing Room" }
+  { id: "amb-1", image: getAssetUrl("assets/images/ambience/ambience-1.jpg"), title: "Modern Clinic Exterior & Entrance" },
+  { id: "amb-2", image: getAssetUrl("assets/images/ambience/ambience-2.jpg"), title: "Executive Reception & Patient Helpdesk" },
+  { id: "amb-3", image: getAssetUrl("assets/images/ambience/ambience-3.jpg"), title: "Patient Waiting Lounge & Care Gallery" },
+  { id: "amb-4", image: getAssetUrl("assets/images/ambience/ambience-4.jpg"), title: "Consultation Chamber & Examiniation Suite" },
+  { id: "amb-5", image: getAssetUrl("assets/images/ambience/ambience-5.jpg"), title: "Specialist Clinical Examination Room" },
+  { id: "amb-6", image: getAssetUrl("assets/images/ambience/ambience-6.jpg"), title: "Wide Clinic Gallery Corridor" },
+  { id: "amb-7", image: getAssetUrl("assets/images/ambience/ambience-7.jpg"), title: "Physiotherapy & Active Rehabilitation Suite" },
+  { id: "amb-8", image: getAssetUrl("assets/images/ambience/ambience-8.jpg"), title: "Sterile Plaster (POP) & Minor Dressing Room" }
 ];
 
 export const surgicalWorkImages = [
-  { id: "w-1", image: "./assets/images/work/work-1.jpg", title: "Robotic Knee Replacement Alignment" },
-  { id: "w-2", image: "./assets/images/work/work-2.jpg", title: "Keyhole 4K Arthroscopy Visualization" },
-  { id: "w-3", image: "./assets/images/work/work-3.jpg", title: "ACL All-Inside Ligament Reconstruction" },
-  { id: "w-4", image: "./assets/images/work/work-4.jpg", title: "Rotator Cuff SutureBridge Repair" },
-  { id: "w-5", image: "./assets/images/work/work-5.jpg", title: "Complex Fracture Locking Plate Fixation" },
-  { id: "w-6", image: "./assets/images/work/work-6.jpg", title: "Biologic PRP Joint Preservation" }
+  { id: "w-1", image: getAssetUrl("assets/images/work/work-1.jpg"), title: "Robotic Knee Replacement Alignment" },
+  { id: "w-2", image: getAssetUrl("assets/images/work/work-2.jpg"), title: "Keyhole 4K Arthroscopy Visualization" },
+  { id: "w-3", image: getAssetUrl("assets/images/work/work-3.jpg"), title: "ACL All-Inside Ligament Reconstruction" },
+  { id: "w-4", image: getAssetUrl("assets/images/work/work-4.jpg"), title: "Rotator Cuff SutureBridge Repair" },
+  { id: "w-5", image: getAssetUrl("assets/images/work/work-5.jpg"), title: "Complex Fracture Locking Plate Fixation" },
+  { id: "w-6", image: getAssetUrl("assets/images/work/work-6.jpg"), title: "Biologic PRP Joint Preservation" }
 ];
 
 export const faqsData: FAQItem[] = [

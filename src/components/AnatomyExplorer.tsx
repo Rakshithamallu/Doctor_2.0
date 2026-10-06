@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Activity, Shield, Compass, ArrowRight, CheckCircle2, ChevronRight } from 'lucide-react';
+import { getAssetUrl } from '../data/clinicData';
 
 interface JointAnatomy {
   id: string;
@@ -22,7 +23,7 @@ const anatomyJoints: JointAnatomy[] = [
     name: 'Knee Joint Complex',
     category: 'Arthroscopy & Robotic Care',
     badge: 'High Precision Keyhole',
-    image: './assets/images/knee-anatomy-clean.jpg',
+    image: getAssetUrl('assets/images/knee-anatomy-clean.jpg'),
     icon: Activity,
     overview: 'The knee is a complex weight-bearing hinge joint supported by cruciate ligaments (ACL/PCL), collateral ligaments, meniscal shock-absorbers, and articular cartilage.',
     structures: ['Anterior Cruciate Ligament (ACL)', 'Medial & Lateral Meniscus', 'Articular Hyaline Cartilage', 'Medial Patellofemoral Ligament (MPFL)'],
@@ -36,7 +37,7 @@ const anatomyJoints: JointAnatomy[] = [
     name: 'Shoulder Ball & Socket',
     category: 'Arthroscopy & Reconstruction',
     badge: 'Rotational Freedom',
-    image: './assets/images/shoulder-anatomy-clean.jpg',
+    image: getAssetUrl('assets/images/shoulder-anatomy-clean.jpg'),
     icon: Shield,
     overview: 'The human shoulder offers the widest range of motion in the body, relying on the rotator cuff tendon group and the glenoid labrum for dynamic stability.',
     structures: ['Supraspinatus & Infraspinatus Tendons', 'Glenoid Labrum (Cartilage Ring)', 'Biceps Anchor Complex', 'Subacromial Bursa'],
@@ -50,7 +51,7 @@ const anatomyJoints: JointAnatomy[] = [
     name: 'Spine & Intervertebral Discs',
     category: 'Conservative & Keyhole Spine',
     badge: 'Evidence-Based Care',
-    image: './assets/images/spine-anatomy-clean.jpg',
+    image: getAssetUrl('assets/images/spine-anatomy-clean.jpg'),
     icon: Compass,
     overview: 'The vertebral column protects the central spinal cord while providing flexible torso mobility, cushioned by fibrous intervertebral shock-absorbing discs.',
     structures: ['Intervertebral Discs (L4-L5, L5-S1)', 'Sciatic & Lumbar Nerve Roots', 'Facet Joints & Ligamentum Flavum', 'Paraspinal Muscular Core'],
@@ -64,7 +65,7 @@ const anatomyJoints: JointAnatomy[] = [
     name: 'Fracture & Complex Trauma',
     category: 'Trauma & Bone Fixation',
     badge: '24/7 Rapid Care',
-    image: './assets/images/trauma-fracture-clean.jpg',
+    image: getAssetUrl('assets/images/trauma-fracture-clean.jpg'),
     icon: Activity,
     overview: 'Biological fracture fixation utilizing low-contact titanium locking compression plates (LCP) and minimally invasive plate osteosynthesis (MIPO).',
     structures: ['Cortical & Cancellous Bone', 'Periosteal Blood Supply', 'Tendon Insertion Anchors', 'Joint Articular Facets'],
@@ -78,7 +79,7 @@ const anatomyJoints: JointAnatomy[] = [
     name: 'Hip Joint & Pelvis',
     category: 'Arthroplasty & Preservation',
     badge: 'Mobility Restoration',
-    image: './assets/images/arthritis-clean.jpg',
+    image: getAssetUrl('assets/images/arthritis-clean.jpg'),
     icon: Activity,
     overview: 'Deep ball-and-socket joint transferring whole-body loads. Advanced preservation and ceramic total hip replacements for lasting longevity.',
     structures: ['Femoral Head & Acetabulum', 'Acetabular Labrum', 'Ligamentum Teres', 'Iliopsoas Tendon'],
@@ -92,7 +93,7 @@ const anatomyJoints: JointAnatomy[] = [
     name: 'Ankle & Foot Injuries',
     category: 'Sports & Trauma',
     badge: 'Kinetic Stability',
-    image: './assets/images/ankle-foot-clean.jpg',
+    image: getAssetUrl('assets/images/ankle-foot-clean.jpg'),
     icon: Activity,
     overview: 'Ligamentous ankle stabilization and Achilles tendon repair to regain full sports agility and weight-bearing comfort.',
     structures: ['Anterior Talofibular Ligament (ATFL)', 'Calcaneofibular Ligament (CFL)', 'Achilles Tendon', 'Plantar Fascia'],

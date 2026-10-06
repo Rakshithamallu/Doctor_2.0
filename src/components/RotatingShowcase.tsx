@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, X, Stethoscope } from 'lucide-react';
+import { getAssetUrl } from '../data/clinicData';
 
 interface Hotspot {
   id: string;
@@ -29,7 +30,7 @@ const pods: OrbitPod[] = [
     name: '3D Fracture & Bone Alignment',
     badge: '24/7 Trauma Care',
     categoryBadge: 'TRAUMA & FRACTURE CARE',
-    image: './assets/images/trauma-fracture-clean.jpg',
+    image: getAssetUrl('assets/images/trauma-fracture-clean.jpg'),
     caption: 'Rigid anatomical fixation, tendon repair & early kinetic sports rehabilitation',
     description: 'Emergency and elective biological fracture fixation with low-contact titanium locking compression plates (MIPO).',
     procedures: ['Minimally Invasive Plating (MIPO)', 'Geriatric Hip PFN-A Nailing', 'Complex Intra-Articular Repair', 'Non-Union Bone Grafting'],
@@ -90,7 +91,7 @@ const pods: OrbitPod[] = [
     name: 'Knee Arthroscopy & ACL',
     badge: 'Keyhole Sports Care',
     categoryBadge: 'KNEE ARTHROSCOPY & SPORTS',
-    image: './assets/images/knee-anatomy-clean.jpg',
+    image: getAssetUrl('assets/images/knee-anatomy-clean.jpg'),
     caption: 'ACL/PCL keyhole repair, Meniscal preservation & Cartilage restoration',
     description: 'Minimally invasive 4mm keyhole procedures for ligament tears, meniscal damage, and cartilage preservation.',
     procedures: ['All-Inside ACL/PCL Reconstruction', 'Meniscal Repair & Preservation', 'MPFL Patellar Stabilization', 'OATS Cartilage Restoration'],
@@ -143,7 +144,7 @@ const pods: OrbitPod[] = [
     name: 'Robotic Joint Replacement',
     badge: 'Sub-Millimeter CUVIS / MAKO',
     categoryBadge: 'ROBOTIC JOINT REPLACEMENT',
-    image: './assets/images/joint-replacement-clean.jpg',
+    image: getAssetUrl('assets/images/joint-replacement-clean.jpg'),
     caption: 'Kinematic alignment, walk in 4 hours & 25-30 year implant longevity',
     description: 'Robotic-assisted joint replacement for knee and hip ensuring personalized kinematic alignment and zero muscle cutting.',
     procedures: ['Robotic Total Knee Replacement', 'Robotic Partial Knee Replacement', 'Ceramic Total Hip Arthroplasty', 'Reverse Shoulder Replacement'],
@@ -196,7 +197,7 @@ const pods: OrbitPod[] = [
     name: 'Shoulder Arthroscopy',
     badge: 'Rotational Freedom',
     categoryBadge: 'SHOULDER ARTHROSCOPY',
-    image: './assets/images/shoulder-anatomy-clean.jpg',
+    image: getAssetUrl('assets/images/shoulder-anatomy-clean.jpg'),
     caption: 'Rotator cuff repair, Bankart labrum stabilization & frozen shoulder release',
     description: 'Keyhole restoration of shoulder stability, overhead mobility, and pain-free sleep using double-row suture bridge technology.',
     procedures: ['Rotator Cuff Double-Row Repair', 'Bankart Labral Stabilization', 'Latarjet Bone Block Transfer', '360° Capsular Release'],
